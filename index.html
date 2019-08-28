@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tianna's Crystal Game</title>
+    <link href="assets/css/reset.css">
+    <link href="assets/css/style.css">
+
+</head>
+<body>
+    <h2>CrystalsCollector!</h2>
+    <div id="Intro">
+        <p>You will be given a random number at the start of the game.</p>
+        <p>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
+        <p>You win the game by matching your total score to the random number. You lose the game if your total score goes above the random number.</p>
+        <p>The value of each crystal is hidden from you until you click on it.</p>
+        <p>Each time the game restarts, the value of each crystal changes.</p>
+    </div>
+    <p>Try to reach this number: <span id="randomNumber">0</span></p>
+    <p>Wins: <span id="Wins">0</span></p>
+    <p>Losses: <span id class="Losses">0</span></p>
+
+    <div id="Images">
+        <img id="crystalOne" src="assets/images/crystalOne">
+        <img id="crystalTwo" src="assets/images/crystalTwo">
+        <img id="crystalThree" src="assets/images/crystalThree">
+        <img id="crystalFour" src="assets/images/crystalFour">
+    </div>
+    <p>Your total score is: <span id="totalScore">0</span></p>
+    <script href="assets/javascript/game.js"></script>
+</body>
+</html>
