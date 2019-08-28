@@ -1,64 +1,57 @@
 var Wins = 0; //User wins.
 var Losses = 0; //User losses.
 var totalScore = 0; //User score.
-var randomNumber = ["123456789"]; //Numbers for computer to pick from.
-
-var crystalOne = ""; //First crystal amount.
-var crystalTwo = ""; //Two crystal amount.
-var crystalThree = ""; //Three crystal amount.
-var crystalFour = ""; //Fourth crystal amount.
-
 var totalGoal = "" //Number computer picked for user to reach.
 
-//Update the user's number of wins in the HTML to display to the user.
-var updateWins = function(){
-    document.querySelector("#Wins").innerHTML = Wins;
-}
-
-//Update the user's number of losses in the HTML to display to the user.
-var updateLosses = function(){
-    document.querySelector("#Losses").innerHTML = Losses;
-}
-
-//Update the user's total score in the HTML to display to the user.
-var updateTotalScore = function(){
-    document.querySelector("#totalScore").innerHTML = totalScore;
-}
-
-//Computer picks a random number for user to reach and assigns values to each crystal.
-var assignValues = function(){
-    totalGoal = randomNumber.charAt(Math.floor(Math.random()*randomNumber.length));
+//Computer picks a random number for user to reach.
+function assignValues(){
+    totalGoal = randomNumber(Math.floor(Math.random()*100)+1);
         return totalGoal;
-    crystalOne = randomNumber.charAt(Math.floor(Math.random()*randomNumber.length));
-        return crystalOne;
-    crystalTwo = randomNumber.charAt(Math.floor(Math.random()*randomNumber.length));
-        return crystalTwo;
-    crystalThree = randomNumber.charAt(Math.floor(Math.random()*randomNumber.length));
-        return crystalThree;
-    crystalFour = randomNumber.charAt(Math.floor(Math.random()*randomNumber.length));
-        return crystalFour;
 };
 
+//Computer will loop through and assign random numerical values to each crystal.
+for (var x = 1; x < 5; x++){
+    $("#crystal"+x).attr("value", getRandomNumber());
+};
+
+
+function getRandomNumber(){
+    var y = Math.floor(Math.random()*100); // = randonNumber function
+    return y;
+}
+//When user clicks a crystal, update the user's total score in the HTML to display to the user.
+ function updateTotalScore(){
+    $("#totalScore").text(totalScore);
+
+        //Update the user's number of wins in the HTML to display to the user.
+        if(totalScore === totalGoal){
+        Wins++;
+        $("#Wins").text(Wins);
+        resetGame();
+        }
+
+        //Update the user's number of losses in the HTML to display to the user.
+        if(totalScore > totalGoal){
+        Losses++;
+        $("#Losses").text(Losses);
+        resetGame();
+        }
+};
+
+$(".crystal").on("click", function(){
+    updateTotalScore();
+    alert("Crystal clicked.")
+});
+
+updateTotalScore();
+console.log(updateTotalScore);
+
+
+
+//Resets the game by updating the total score and assigning new values.
 var resetGame = function(){
     totalScore = 0;
     assignValues();
 };
 
-
-//When user clicks a crystal, the total score will update.
-$("#crystalOne").on("click", function(){
-    updateTotalScore();
-});
-
-$("#crystalTwo").on("click", function(){
-    updateTotalScore();
-});
-
-$("#crystalThree").on("click", function(){
-    updateTotalScore();
-});
-
-$("#crystalFour").on("click", function(){
-    updateTotalScore();
-});
 
