@@ -1,4 +1,71 @@
+HTML{
+    background: url('../images/Background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container {
+    background-color: #7528C2;
+    clear: both;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+h2 {
+    color: #E7E2DF;
+    font-family: 'Arima Madurai', cursive;
+    font-size: 30px;
+    text-align: center;
+}
+
+#Intro {
+    background-color: #0F143C;
+    border: solid thick #983AEA;
+    box-shadow: 0px 0px 5px #fff;
+    color: #2756CC;
+    float: left;
+    font-family: 'Emilys Candy', cursive;
+    font-size: 20px;
+    margin: 20px;
+    max-width: 490px;
+    padding: 10px;
+}
+
+#Score {
+    background-color: #0F143C;
+    border: solid thick #983AEA;
+    box-shadow: 0px 0px 5px #fff;
+    clear: both;
+    color: #2756CC;
+    display: block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    margin: 20px;
+    max-width: 140px;
+    padding: 20px;
+}
+
+#Images {
+    background-color: #337DD2;
+    border: solid thick #983AEA;
+    box-shadow: 0px 0px 5px #fff;
+    display: block;
+    margin: auto;
+    padding: 10px;
+    width: 45%;
+}
+
 img {
-    width: 25px;
-    height: 25px;
+    height: auto;
+    width: 150px;
+}
+
+#Footer {
+    background-color: #1D31A2;
+    clear: both;
+    color: #E7E2DF;
+    font-family: 'Arima Madurai', cursive;
+    margin-top: 30px;
+    padding: 20px;
+    text-align: center;
 }

@@ -1,23 +1,21 @@
-var Wins = 0; //User wins.
-var Losses = 0; //User losses.
-var totalGoal = 0; //User goal number
-var totalScore = 0; //User score.
-
-//Computer picks a random number for user to reach.
-function assignValues(){
-    totalGoal = randomNumber(Math.floor(Math.random()*100));
-        return totalGoal;
-            $("#randomNumber").attr("value", assignValues());
+//Computer picks a random number between 1 and 101 for user to reach.
+function assignGoal(){
+    var totalGoal = Math.floor(Math.random() * 100 + 1);
+        $("#randomNumber").text(totalGoal); 
+            console.log(totalGoal);
 };
 
-//Computer will loop through and assign random numerical values to each crystal.
+//Calls assignGoal function.
+assignGoal();
+
+//Computer will loop through and assign random numerical values between 1 and 12 to each crystal.
 for (var x = 1; x < 5; x++){
     $("#crystal"+ x).attr("value", getRandomNumber());
 };
 
-//User is assigned random number to reach.
+//Computer picks a random number between 1 and 12.
 function getRandomNumber(){
-    totalGoal = Math.floor(Math.random()*50);
+    totalGoal = Math.floor(Math.random() * 11 + 1);
         return totalGoal;
 };
 
@@ -25,38 +23,42 @@ function getRandomNumber(){
 getRandomNumber();
 
 //When user clicks a crystal, update the user's total score in the HTML to display to the user.
- function updateTotalScore(crystalClickedVal){
-    var z = $("#totalScore").text(crystalClickedVal);
+function updateTotalScore(crystalClickedVal){
+    var totalScore = parseInt($("#totalScore").text());
+    var goalValue = parseInt($("#randomNumber").text());
+    totalScore += parseInt(crystalClickedVal);
+    $("#totalScore").text(totalScore);
         //Update the user's number of wins in the HTML to display to the user.
-        if(totalScore === totalGoal){
+        if(totalScore === goalValue){
+            var Wins = $("#Wins").text();
             Wins++;
             $("#Wins").text(Wins);
+            alert("You win!!");
             resetGame();
-        };
-
-        //Update the user's number of losses in the HTML to display to the user.
-        if(totalScore > totalGoal){
+        } else if (totalScore > goalValue){
+            var Losses = $("#Losses").text();
             Losses++;
             $("#Losses").text(Losses);
+            alert("You lose :P");
             resetGame();
-        };
+        } else {
+            //do nothing 
+        }
 };
-
-//Call totalScore function.
-updateTotalScore();
 
 //When user clicks on a crystal the total score will update based on the clicked crystal's value.
 $(".crystal").on("click", function(){
     var crystalClickedVal = $(this).attr('value');
     console.log(crystalClickedVal);
     updateTotalScore(crystalClickedVal);
-    alert("Crystal clicked.");
+    console.log(this);
  });
 
 //Resets the game by updating the total score and assigning new values.
 var resetGame = function(){
-    totalScore = 0;
-    assignValues();
+    assignGoal();
+    getRandomNumber();
+    $("#totalScore").text(0);
 };
 
 
