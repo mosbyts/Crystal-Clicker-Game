@@ -1,5 +1,8 @@
 # Crystal-Clicker-Game
 
+## Play The Game
+Click here: https://mosbyts.github.io/Crystal-Clicker-Game/
+
 ## Description
 The Crystal-Clicker-Game is a randomized number guessing game. The user will be given a goal number to reach and four crystals with randomized values to use to reach the goal number. If the user surpasses the goal number, they lose.
 
